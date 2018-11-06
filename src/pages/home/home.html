@@ -1,18 +1,23 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <!-- <ion-icon name="menu"></ion-icon> -->
+      <img src="http://www.della.in/wp-content/themes/arw-leka/images/logo.jpg" width=40%>
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-card *ngFor = "let music of allMusic">
+      <img [src] = "music.image">
+      <ion-card-content>
+        <ion-card-title>{{music.name}}</ion-card-title>
+        <ion-item>
+          <button ion-button item-left (click) = "shareSong(music)">Share</button>
+          <button ion-button item-right (click) = "goToMusic(music)">Play</button>
+        </ion-item>
+      </ion-card-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  </ion-card>
 </ion-content>
